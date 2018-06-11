@@ -1,0 +1,24 @@
+{
+    "name": "com.jc.apps.cm",
+    "displayName": "CourseMaster",
+    "version": "1.0.0",
+    "description": "Cource Master to schedule and manage courses.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "JC Support Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-ios": "^4.5.4",
+        "cordova-plugin-whitelist": "^1.3.3"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
+}

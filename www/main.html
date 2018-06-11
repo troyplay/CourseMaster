@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+   main framework for navigation.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--OneUi CSS-->
+    <link rel="stylesheet" href="js/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="js/onsenui/css/onsen-css-components.min.css">
+    <!--main css -->
+    <link rel="stylesheet" href="css/main.css">
+    <title>main</title>
+</head>
+
+<body>
+    <ons-navigator swipeable id="mainNavigator" page="main.html"></ons-navigator>
+    <template id="main.html">
+        <ons-page id="main">
+            <ons-toolbar>
+                <div class="center">课程</div>
+                <div class="right">
+                    <ons-toolbar-button>
+                        <ons-icon icon="fa-plus"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+
+            <ons-tabbar swipeable position="auto" id="main_navigator">
+                <ons-tab page="tab1.html" data-action="fa-plus" label="课程" icon="ion-home, material:md-home" badge="7" active>
+                </ons-tab>
+                <ons-tab page="tab2.html" data-action="fa-plus" label="计费" icon="ion-calculator" active-icon="ion-calculator">
+                </ons-tab>
+                <ons-tab page="student_list.html" data-action="fa-user-plus" label="学生" icon="md-face" active-icon="md-face">
+                </ons-tab>
+            </ons-tabbar>
+        </ons-page>
+    </template>
+    <template id="tab1.html">
+        <ons-page id="Tab1">
+            <p style="text-align: center;">
+                This is the first page.
+            </p>
+        </ons-page>
+    </template>
+
+    <template id="tab2.html">
+        <ons-page id="Tab2">
+            <p style="text-align: center;">
+                This is the second page.
+            </p>
+        </ons-page>
+    </template>
+    <!-- student list page -->
+    <template id="student_list.html">
+        <ons-page id="student_list">
+            <ons-list>
+                <ons-list-header>A</ons-list-header>
+                <ons-list-item modifier="chevron longdivider" tappable>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="img/boss_baby.png">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">上课</span>
+                        <span class="list-item__subtitle">李 梓艺</span>
+                    </div>
+                </ons-list-item>
+                <ons-list-item modifier="chevron longdivider" tappable>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="img/boss_baby.png">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">上课</span>
+                        <span class="list-item__subtitle">李 梓艺</span>
+                    </div>
+                </ons-list-item>
+                <ons-list-header>L</ons-list-header>
+                <ons-list-item modifier="chevron longdivider" tappable>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="img/boss_baby.png">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">停课</span>
+                        <span class="list-item__subtitle">李 梓艺</span>
+                    </div>
+                </ons-list-item>
+                <ons-list-item modifier="chevron longdivider" tappable>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="img/boss_baby.png">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">结课</span>
+                        <span class="list-item__subtitle">李 梓艺</span>
+                    </div>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </template>
+    <!-- student detail page -->
+    <template id="student_detail.html">
+        <ons-page id="student_detail">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button></ons-back-button>
+                </div>
+                <div class="center"></div>
+            </ons-toolbar>
+
+            <ons-card>
+                <img src="img/boss_baby.png" alt="点击更换头像" style="width: 100%">
+                <div class="title">
+					<ons-row>
+					  <ons-col width="25%">请假:</ons-col>
+					  <ons-col><ons-switch checked></ons-switch></ons-col>
+					  <ons-col width="25%">账户:</ons-col>
+					  <ons-col>1,000</ons-col>
+					</ons-row>
+                </div>
+                <div class="content">
+                    <div class="">
+                        <ons-button id="edit_student_btn">
+                            <ons-icon icon="ion-edit">编辑</ons-icon>
+                        </ons-button>
+                        <ons-button id="recharge_btn">
+                            <ons-icon icon="ion-social-bitcoin">充值</ons-icon>
+                        </ons-button>
+                    </div>
+                    <ons-list>
+                        <ons-list-header>详情</ons-list-header>
+                        <ons-list-item>
+                            <ons-row>
+                                <ons-col width="50px">年龄：</ons-col>
+                                <ons-col>3</ons-col>
+                            </ons-row>
+                        </ons-list-item>
+                        <ons-list-item>
+                            <ons-row>
+                                <ons-col width="50px">课时：</ons-col>
+                                <ons-col>45分钟</ons-col>
+                            </ons-row>
+                        </ons-list-item>
+                        <ons-list-item>
+                            <ons-row>
+                                <ons-col width="50px">课费：</ons-col>
+                                <ons-col>180</ons-col>
+                            </ons-row>
+                        </ons-list-item>
+						<ons-list-item>
+                            <ons-row>
+                                <ons-col width="50px">排课：</ons-col>
+                                <ons-col>周三14:30</ons-col>
+                            </ons-row>
+                        </ons-list-item>
+                    </ons-list>
+                </div>
+            </ons-card>
+        </ons-page>
+    </template>
+	<!-- student detail form modal -->
+	<ons-modal id="student_form" direction="up" style="color:white;">
+		<div style="text-align: center; margin-top: 30px;">
+			<p >
+				<ons-input name="age" modifier="underbar" placeholder="姓名" float></ons-input>
+			</p>
+			<p>
+				<ons-input name="age" modifier="underbar" placeholder="年龄" float></ons-input>
+			</p>
+			<p>
+				<ons-input name="time" modifier="underbar" placeholder="课时" float></ons-input>
+			</p>
+			<p>
+				<ons-input name="price" modifier="underbar" placeholder="课费" float></ons-input>
+			</p>
+			<p style="background:white;">
+				<select name= "weekday" class="select-input select-input--material">
+					<option>临时</option>
+					<option>周一</option>
+					<option>周二</option>
+					<option>周三</option>
+					<option>周四</option>
+					<option>周五</option>
+					<option>周六</option>
+					<option>周日</option>
+				</select>
+				&nbsp;
+				<select name= "hours" class="select-input select-input--material">
+					<option>8点</option>
+					<option>9点</option>
+					<option>10点</option>
+					<option>11点</option>
+					<option>12点</option>
+					<option>13点</option>
+					<option>14点</option>
+					<option>15点</option>
+					<option>16点</option>
+					<option>17点</option>
+					<option>18点</option>
+					<option>19点</option>
+					<option>20点</option>
+					<option>21点</option>
+				</select>
+				&nbsp;
+				<select name= "minutes" class="select-input select-input--material">
+					<option>00分</option>
+					<option>10分</option>
+					<option>20分</option>
+					<option>30分</option>
+					<option>40分</option>
+					<option>50分</option>
+				</select>
+			</p>
+			<p style="margin-top: 30px;">
+				<ons-button id="detail_update">修改</ons-button>
+				<ons-button id="detail_cancel">取消</ons-button>
+			</p>
+		</div>
+	</ons-modal>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!--OneUi js libirary -->
+    <script type="text/javascript" src="js/onsenui/js/onsenui.min.js"></script>
+    <!--Jquery libirary -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
